@@ -122,6 +122,8 @@ VS Code 配置：通过图形界面进行配置，特殊配置手动更改配置
 <style scoped lang="scss"></style>
 ```
 
+## 代码参考
+
 路由：router/index.js
 
 ```js
@@ -187,3 +189,36 @@ app.use(router);
 
 app.mount("#app");
 ```
+
+## Elementu Plus
+
+https://element-plus.gitee.io/zh-CN/
+
+安装：`npm install element-plus --save`
+
+按需导入：
+
+- 安装插件：`npm install -D unplugin-vue-components unplugin-auto-import`
+- 配置 vite.config.js
+
+vite.config.js：
+
+```js
+import AutoImport from "unplugin-auto-import/vite";
+import Components from "unplugin-vue-components/vite";
+import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
+
+export default {
+  plugins: [
+    // ...
+    AutoImport({
+      resolvers: [ElementPlusResolver()],
+    }),
+    Components({
+      resolvers: [ElementPlusResolver()],
+    }),
+  ],
+};
+```
+
+## 网络请求
